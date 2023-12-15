@@ -64,14 +64,15 @@ class ReactionsClient {
     String? userId,
     Map<String, Object>? data,
     List<FeedId>? targetFeeds,
+    final Map<String, Object>? targetFeedsExtraData,
   }) {
     final reaction = Reaction(
-      kind: kind,
-      activityId: activityId,
-      userId: userId,
-      data: data,
-      targetFeeds: targetFeeds,
-    );
+        kind: kind,
+        activityId: activityId,
+        userId: userId,
+        data: data,
+        targetFeeds: targetFeeds,
+        targetFeedsExtraData: targetFeedsExtraData);
     final token =
         userToken ?? TokenHelper.buildReactionToken(secret!, TokenAction.write);
     return _reactions.add(token, reaction);
